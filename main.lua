@@ -2,8 +2,7 @@ local dpi = love.graphics.getDPIScale()
 
 local canvas  = love.graphics.newCanvas(512, 512, {
   format       = "rgba32f",
-  computewrite = true,
-  dpiscale     = false
+  computewrite = true
 })
 
 local quad          = love.graphics.newQuad(0, 0, 1, 1, canvas)
@@ -79,10 +78,10 @@ function love.draw()
     quad:setViewport(x, y, w, h)
 
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.draw(canvas, quad, 100, 100)
+    love.graphics.draw(canvas, quad, 32 + x, 32 + y)
 
     love.graphics.setColor(1, 0, 1, 1)
-    love.graphics.rectangle("line", 100, 100, w, h)
+    love.graphics.rectangle("line", 32 + x, 32 + y, w, h)
 
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.print(
